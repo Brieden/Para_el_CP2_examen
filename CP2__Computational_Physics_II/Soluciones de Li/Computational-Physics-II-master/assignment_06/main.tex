@@ -1,0 +1,163 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Short Sectioned Assignment
+% LaTeX Template
+% Version 1.0 (5/5/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+% \usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[utf8]{inputenc} % german letter
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+%\usepackage[version=3]{mhchem} % Package for chemical equation typesetting
+\usepackage{siunitx} % Provides the \SI{}{} and \si{} command for typesetting SI units
+\usepackage{graphicx} % Required for the inclusion of images
+%\usepackage{natbib} % Required to change bibliography style to APA
+\usepackage{authblk}
+\usepackage{indentfirst}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{times}
+\usepackage{placeins}
+\usepackage{enumitem}
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\centering \normalfont\scshape} % Make all sections centered, the default font and small caps
+
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+\graphicspath{{images/}{figures/}}
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{}% No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+\linespread{1.2}
+
+%\setlength\parindent{0pt} % Removes all indentation from paragraphs - comment this line for an assignment with lots of text
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\usepackage{titling}
+\setlength{\droptitle}{-5em} % spacing top margin of title 
+\renewcommand\maketitlehookc{\vspace{-5ex}} %space between author and date 
+
+\title{
+	\normalfont \normalsize 
+	%\textsc{Philipps-Universit\"at Marburg, The Department of Physics} \\ [25pt] % Your university, school and/or department name(s)
+	%\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+	\LARGE Computational Physics II: Assignment 6 \\ % The assignment title
+	%\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+  }
+  
+\author{\Large Dayeon \textsc{Kang}} % Your name
+\date{\normalsize\today} % Today's date or a custom date
+
+\begin{document}
+
+\maketitle % Print the title
+
+\section{Buffon's needle problem}
+
+Stredagy :   
+\begin{itemize}[itemsep=0pt]
+  
+\item \parbox[t]{\dimexpr\textwidth-\leftmargin}{%
+      \vspace{-2.5mm}
+      \begin{wrapfigure}{r}{0.45\textwidth}
+        \centering
+        \vspace{-\baselineskip}
+        \includegraphics[width = 0.4\textwidth]{figures/1.png}
+        \caption[]{}
+        \label{fig1}
+  \end{wrapfigure}
+
+  For each substrates glass and KCl (100), following procedure will be repeated. 
+
+\item For a simulation, a region $\pm d/2$ from a gap of strip is considered
+\item A generation of random number in $[0,d)$ determines a distance(a) between an end of needle position and the gap. In Fig \ref{fig1}, P point represents  the end of needle. 
+    \item The other end of the need is in the circle given center P and radius needle length ($l$)}
+\vspace{0.7em}
+    \item Probability for the needle cross the gap with the point  P(a) :  $\cos^{-1}(a/l)/\pi$
+
+    \item Total probabilty for the event, cross the gap  by a dropped needle, is
+             \begin{equation}
+        \text{Prob}_{\text{needle cross }} = \sum \Theta(l - |a|)P(a) = \sum_{i} \Theta(l - |x_{i}-d/2|)\cos^{-1}(|x_{i}-d/2 |/l)/\pi 
+        \end{equation}
+      \end{itemize}
+
+      Simulation results :
+      As seen in Figure \ref{fig1-2}, high ratio l/d gives high posibilty to cross the gap as expected. When the ratio is close to zero, probability density fluctuates since divider is too small. As increasing the ratio to 0.5 , probability density seems to converge about 0.3. Ater then the probability density is decreased as the ratio is increased.  
+  \begin{figure}
+    \centering
+  \includegraphics[width=0.45\textwidth]{figures/6_1_Biffon_needle_problem.png}
+  \includegraphics[width=0.45\textwidth]{figures/6_1_Biffon_needle_problem_2.png}
+   \caption{Simulation results}
+   \label{fig1-2}
+\end{figure}
+      
+\FloatBarrier 
+\section{Travelling salesman: exact solution}
+The implement results for Travelling salesman with 3-9 cities are represented Figure \ref{fig2-1} and Figure \ref{fig2-2}. The case with 2  cities is not simulated since one travel plan is possible. The simulstion perfomed with initial temperature as 1 to final temparture 0.001. Temperature steps are choosen with geometric progression. For each temperature steps, 10 times of city exchange are checked with  Metropolis algorithm. Most of case, travelling path is converged $T > 0.01$. The final travelling plans by the simulation are given in Figure \ref{fig2-2}. 
+
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.650\textwidth]{figures/6_2_Salesman_Problem.png}
+  \caption{Salesman simulation with metropolis algorithm as decreasing temperature }
+  \label{fig2-1}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.24\textwidth]{figures/6_2_03_cities_map.png}
+  \includegraphics[width=0.24\textwidth]{figures/6_2_04_cities_map.png}
+  \includegraphics[width=0.24\textwidth]{figures/6_2_05_cities_map.png}
+  \includegraphics[width=0.24\textwidth]{figures/6_2_06_cities_map.png}
+  \includegraphics[width=0.24\textwidth]{figures/6_2_07_cities_map.png}
+  \includegraphics[width=0.24\textwidth]{figures/6_2_08_cities_map.png}
+  \includegraphics[width=0.24\textwidth]{figures/6_2_09_cities_map.png}
+  \caption{Optimized travel plan of salesman problem with metropolis algorithm as decreasing temperature}
+  \label{fig2-2}
+\end{figure}
+
+\end{document}
+
