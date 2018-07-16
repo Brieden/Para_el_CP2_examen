@@ -1,0 +1,38 @@
+A1:
+   2*167 Terme. Hier sind die Summationsgrenzen falsch 
+   Mit richtigen Grenzen zu ineffizient, ich konnte auf keinen Wert kommen.
+
+2/4 
+
+A2: 
+   in sinnvollen Intervallen geplottet
+   5 Nullstellen korrekt bestimmt mit scipy.optimize.fmin, 
+   i.e. minima von |f(x)|, ist fehleranfällig
+
+4/4    
+
+A3: 
+   Lösung der ODE mit odeint korrekt implementiert
+   Angabe der Anfangsdiskretisierung, nicht der Anzahl der Zeitschritte
+   Beschreibung von scipy.integrate.odeint statt Bestimmung des Integrators
+
+3/5
+
+A4: 
+   finite Differenzen korrekt implementiert, 
+   Keine Konvergenztests, resp Diskretisierung und Intervallänge: -2P
+   Verifikation über HO-Potential, aber nicht im code.  
+   Interval [-2.5,2.5] zu klein für hohe n  
+   Als output nur ein Graph.  
+
+2/4
+
+
+A5: 
+    x korrekt, berechnet mit np.linalg.lstsq
+    Residual O(10^-15) 
+    condition korrekt mit 2-Norm
+    
+4/4 
+
+15/21 
