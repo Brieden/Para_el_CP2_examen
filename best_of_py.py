@@ -20,6 +20,11 @@ for i in range(6):
     print("Starte mit Aufgabe %i nach spätestens %i Minuten!"% (i+1, 120/6*i))
     
 """
+# schönes Histogramm
+
+rand = np.random.rand(int(1e7))
+plt.hist(rand,normed=True,histtype='step',bins=50)
+
 # Ableitung + Nullstelle mit x-Array
 V = lambda x: x**2 * np.exp(-x)
 dV = lambda x: np.gradient(V(x),x)
