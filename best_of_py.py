@@ -21,9 +21,8 @@ for i in range(6):
     
 """
 # schönes Histogramm
-
 rand = np.random.rand(int(1e7))
-plt.hist(rand,normed=True,histtype='step',bins=50)
+plt.hist(rand,density=True,histtype='step',bins=50)
 
 # Ableitung + Nullstelle mit x-Array
 V = lambda x: x**2 * np.exp(-x)
